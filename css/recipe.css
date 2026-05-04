@@ -1,0 +1,56 @@
+#recipe-name-container {
+    margin: 100px 40px 10px 40px;
+
+    position: relative;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+    text-wrap: unset;
+}
+
+#recipe-name {
+    margin: 0px;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+
+#info-container,
+#ingredients-list-container,
+#steps-list-container {
+    width: 30%;
+    justify-self: center;
+
+}
+
+#info-container {
+    margin: 0;
+}
+
+#ingredients-list-container,
+#steps-list-container {
+    margin-top: 75px;
+}
+
+#steps-list-container {
+    margin-bottom: 10%;
+}
+
+#ingredients-title,
+#steps-title {
+    margin-bottom: 0;
+}
+
+#ingredients-list,
+#steps-list {
+    padding-left: 10%;
+    font-family: inherit;
+    line-height: 1.5em;
+}
+
+li {
+    padding: 5px 0 0 5px;
+
+}

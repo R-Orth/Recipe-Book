@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Ad Free Recipe Book App">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chef It</title>
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/global-styles.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="../img/logo.png" alt="Image of a chef hat with the words 'Chef It Recipe Book'">
+        <nav>
+            <a href="../index.html">
+                <div class="nav-div"><strong>Home</strong></div>
+            </a>
+            <a href="./add.html">
+                <div class="nav-div"><strong>New Recipe</strong></div>
+            </a>
+            <a href="./search.html">
+                <div class="nav-div"><strong>Search</strong></div>
+            </a>
+        </nav>
+    </header>
+    <div id="search-container">
+        <h3 id="search-title">Find Your New Favorite</h3>
+        <form id="search-form" onsubmit="handleSubmit(event)">
+            <input aria-label="search bar" placeholder="Search" name="search-bar" id="search-bar">
+            <button id="search-button" type="submit">Enter</button>
+        </form>
+    </div>
+
+    <div id="search-results">
+
+    </div>
+
+    <script type="module">
+        import { handleSubmit, deleteSearchResult } from "../js/search.js";
+
+        window.handleSubmit = handleSubmit;
+        window.deleteSearchResult = deleteSearchResult;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Ad Free Recipe Book App">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chef It</title>
+    <link rel="stylesheet" href="../css/recipe.css">
+    <link rel="stylesheet" href="../css/global-styles.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+</head>
+
+<body onload="loadRecipe()">
+    <header>
+        <img id="logo" src="../img/logo.png" alt="Image of a chef hat with the words 'Chef It Recipe Book'">
+        <nav>
+            <a href="../index.html"><div class="nav-div"><strong>Home</strong></div></a>
+            <a href="./add.html"><div class="nav-div"><strong>New Recipe</strong></div></a>
+            <a href="./search.html"><div class="nav-div"><strong>Search</strong></div></a>
+        </nav>
+    </header>
+
+    <div id="recipe-name-container">
+        <h2 id="recipe-name"></h2>
+    </div>
+
+    <div id="info-container">
+        <p id="recipe-time"></p>
+        <p id="recipe-servings"></p>
+    </div>
+
+    <div id="ingredients-list-container">
+        <h3 id="ingredients-title">Ingredients</h3>
+        <hr>
+        <ul id="ingredients-list">
+            
+        </ul>
+    </div>
+
+    <div id="steps-list-container">
+        <h3 id="steps-title">Steps</h3>
+        <hr>
+        <ul id="steps-list">
+            
+        </ul>
+    </div>
+
+
+    <script type="module">
+        import {loadRecipe} from "../js/recipe.js";
+
+        window.loadRecipe = loadRecipe;
+    </script>
+</body>
+
+</html>

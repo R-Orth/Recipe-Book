@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Ad Free Recipe Book App">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chef It</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/global-styles.css">
+    <link rel="icon" type="image/png" href="./img/icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="./img/logo.png" alt="Image of a chef hat with the words 'Chef It Recipe Book'">
+        <nav>
+            <a href="./index.html">
+                <div class="nav-div"><strong>Home</strong></div>
+            </a>
+            <a href="./pages/add.html">
+                <div class="nav-div"><strong>New Recipe</strong></div>
+            </a>
+            <a href="./pages/search.html">
+                <div class="nav-div"><strong>Search</strong></div>
+            </a>
+        </nav>
+    </header>
+
+    <div id="discover-container">
+        <h2 id="discover-title"></h2>
+        <button id="load-button" onclick="loadItems()"><strong>Load Recipes</strong></button>
+    </div>
+
+    <div id="recipe-grid">
+
+    </div>
+
+    <script type="module">
+        import { onLoad, loadItems, deleteItem, randomQuip } from './js/main.js';
+
+        window.onLoad = onLoad;
+        window.loadItems = loadItems;
+        window.deleteItem = deleteItem;
+        window.randomQuip = randomQuip;
+    </script>
+</body>
+
+</html>

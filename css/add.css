@@ -1,0 +1,113 @@
+#content-title-container {
+    margin: 100px 40px 40px 40px;
+    position: relative;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 80%;
+    text-wrap: unset;
+}
+
+#content-title {
+    margin: 0px;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+    color: rgba(74, 46, 30);
+}
+
+#form-area {
+    width: 30%;
+    justify-self: center;
+    justify-content: center;
+}
+
+#form-area form * {
+    justify-self: center;
+}
+
+#ingredients-container,
+#steps-container {
+    width: 100%;
+    margin: 15%
+}
+
+#ingredients-list,
+#steps-list {
+    width: 100%;
+}
+
+.step-text {
+    width: 100%;
+    justify-self: right;
+    resize: none;
+}
+
+legend {
+    margin-left: 50%;
+    font-size: 1.5rem;
+    margin-bottom: 2vh;
+    transform: translate(-50%);
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+#ingredients-container button,
+#steps-container button {
+    margin: 2% 0 0 0;
+}
+
+#add-button {
+    width: 100%;
+}
+
+.step,
+.ingredient {
+    width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-group button {
+    display: inline;
+}
+
+input {
+    padding: 5px -5px 5px 5px;
+    font-size: 1.25rem;
+    line-height: 1.5em;
+}
+
+.ingredient input,
+.ingredient select {
+    font-size: 1rem;
+    padding: 5px 0 5px 0;
+    width: 33%;
+    text-align: center;
+}
+
+.ingredient {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+}
+
+.step textarea {
+    font-size: 1rem;
+}
+
+#add-button-container {
+    margin: 15%;
+}
+
+#add-button {
+    font-size: 1.25rem;
+}
