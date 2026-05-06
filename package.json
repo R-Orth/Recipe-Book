@@ -1,10 +1,10 @@
 {
   "name": "web-dev",
   "version": "0.0.1",
-  "description": "Learning to Code",
+  "description": "Recipe Book Website",
   "private": true,
   "license": "MIT",
-  "author": "Pat von Student",
+  "author": "Ryan Orth",
   "type": "module",
   "scripts": {
     "test": "npx qunit"
@@ -12,5 +12,9 @@
   "devDependencies": {
     "qunit": "^2.23.1",
     "sinon": "^19.0.2"
+  },
+  "dependencies": {
+    "react-helmet-async": "^3.0.0",
+    "react-router-dom": "^7.15.0"
   }
 }

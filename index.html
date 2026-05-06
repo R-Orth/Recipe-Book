@@ -31,7 +31,7 @@
 
     <div id="discover-container">
         <h2 id="discover-title"></h2>
-        <button id="load-button" onclick="loadItems()"><strong>Load Recipes</strong></button>
+        <button id="load-button" ><strong>Load Recipes</strong></button>
     </div>
 
     <div id="recipe-grid">
@@ -39,10 +39,10 @@
     </div>
 
     <script type="module">
-        import { onLoad, loadItems, deleteItem, randomQuip } from './js/main.js';
+        import {onLoad, loadItems, deleteItem, randomQuip } from './js/main.js';
 
         window.onLoad = onLoad;
-        window.loadItems = loadItems;
+        document.getElementById("load-button").addEventListener("click", loadItems);
         window.deleteItem = deleteItem;
         window.randomQuip = randomQuip;
     </script>

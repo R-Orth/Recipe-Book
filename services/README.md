@@ -1,0 +1,1 @@
+```./gradlew bootRun``` for running a service on localhost:8080/\<service-name>
