@@ -61,59 +61,6 @@
     gap: 2.5%;
 }
 
-.recipe-div {
-    position: relative;
-    height: 200px;
-    background-color: rgba(244, 240, 231);
-    box-shadow: 5px 5px 10px rgba(100, 100, 100, 0.3);
-    border-radius: 15px;
-    transition: transform .1s;
-    margin-bottom: 20px;
-}
-
-.recipe-div:hover {
-    box-shadow: 5px 5px 10px rgba(232, 144, 59);
-    transform: scale(1.1);
-}
-
-.recipe-div * {
+#search-results .recipe-div * {
     margin: 8%;
-}
-
-.recipe-name {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 70%;
-    max-height: 4em;
-    line-height: 1.5em;
-    overflow: hidden;
-    font-size: 1.25rem;
-    text-decoration: none;
-    color: inherit;
-}
-
-.recipe-name::after {
-    content: '';
-    position: absolute;
-    top: 2.5em;
-    left: 0;
-    width: 100%;
-    height: 1.5em;
-    background: linear-gradient(to bottom, rgba(244, 240, 231, 0), rgba(244, 240, 231, 1));
-    pointer-events: none;
-}
-
-.delete-button {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    color: rgb(232, 144, 59);
-    cursor: pointer;
-}
-
-.recipe-time {
-    position: absolute;
-    top: 50%;
-    transform: translate(0%, -50%);
 }

@@ -1,0 +1,36 @@
+html {
+    font-size: medium;
+}
+
+#discover-container {
+    margin: 100px 40px 40px 40px;
+    position: relative;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 80%;
+    text-wrap: unset;
+}
+
+#load-button {
+    position: absolute;
+    align-self: center;
+    right: 0px;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+#discover-title {
+    margin: 0px;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+
+#recipe-grid {
+    justify-self: center;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2.5%;
+}

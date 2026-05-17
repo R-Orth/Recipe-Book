@@ -1,32 +1,59 @@
-import { useState } from 'react'
-import '../css/search.css'
-import '../css/global-styles.css'
+import { useState } from "react";
+import RecipeCard from "../components/RecipeCard.jsx";
+import { fetchAllRecipes, deleteRecipeById } from "../utils/api.js";
+import "./SearchPage.css";
 
 function SearchPage() {
-  const [count, setCount] = useState(0)
+    const [query, setQuery] = useState("");
+    const [results, setResults] = useState([]);
 
-  return (
-    <>
-        <div id="search-container">
-            <h3 id="search-title">Find Your New Favorite</h3>
-            <form id="search-form" onsubmit="handleSubmit(event)">
-                <input aria-label="search bar" placeholder="Search" name="search-bar" id="search-bar" />
-                <button id="search-button" type="submit">Enter</button>
-            </form>
-        </div>
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const data = await fetchAllRecipes();
+            setResults(data.filter((recipe) => recipe.name.includes(query)));
+        } catch (error) {
+            console.error("Error searching recipes:", error);
+        }
+    };
 
-        <div id="search-results">
+    const handleDelete = async (id) => {
+        try {
+            await deleteRecipeById(id);
+            setResults((prev) => prev.filter((r) => r.id !== id));
+        } catch (error) {
+            console.error("Error deleting recipe:", error);
+        }
+    };
 
-        </div>
+    return (
+        <>
+            <div id="search-container">
+                <h3 id="search-title">Find Your New Favorite</h3>
+                <form id="search-form" onSubmit={handleSubmit}>
+                    <input
+                        id="search-bar"
+                        name="search-bar"
+                        aria-label="search bar"
+                        placeholder="Search"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
+                    <button id="search-button" type="submit">Enter</button>
+                </form>
+            </div>
 
-        <script type="module">
-            import { handleSubmit, deleteSearchResult } from "../js/search.js";
-
-            window.handleSubmit = handleSubmit;
-            window.deleteSearchResult = deleteSearchResult;
-        </script>
-    </>
-  )
+            <div id="search-results">
+                {results.map((recipe) => (
+                    <RecipeCard
+                        key={recipe.id}
+                        recipe={recipe}
+                        onDelete={handleDelete}
+                    />
+                ))}
+            </div>
+        </>
+    );
 }
 
-export default SearchPage
+export default SearchPage;

@@ -1,6 +1,5 @@
 #recipe-name-container {
     margin: 100px 40px 10px 40px;
-
     position: relative;
     display: flex;
     justify-self: center;
@@ -22,7 +21,6 @@
 #steps-list-container {
     width: 30%;
     justify-self: center;
-
 }
 
 #info-container {
@@ -50,7 +48,7 @@
     line-height: 1.5em;
 }
 
-li {
+#ingredients-list li,
+#steps-list li {
     padding: 5px 0 0 5px;
-
 }

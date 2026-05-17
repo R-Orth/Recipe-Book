@@ -1,28 +1,19 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
+import "./Header.css";
 
 function Header() {
-
     return (
-
         <header>
-                <nav>
-                    <Link className='nav-div' to="/">Home</Link>
-                    <Link className='nav-div' to="/recipes">New Recipe</Link>
-                    <Link className='nav-div' to="/search">Search</Link>
-                </nav>
+            <Link to="/">
+                <img id="logo" src={logo} alt="Image of a chef hat with the words 'Chef It Recipe Book'" />
+            </Link>
+            <nav>
+                <Link to="/"><div className="nav-div"><strong>Home</strong></div></Link>
+                <Link to="/add"><div className="nav-div"><strong>New Recipe</strong></div></Link>
+                <Link to="/search"><div className="nav-div"><strong>Search</strong></div></Link>
+            </nav>
         </header>
-
-        /* <img id="logo" src="./img/logo.png" alt="Image of a chef hat with the words 'Chef It Recipe Book'" />
-        <a href="./index.html">
-        <div class="nav-div"><strong>Home</strong></div>
-        </a>
-        <a href="./pages/add.html">
-        <div class="nav-div"><strong>New Recipe</strong></div>
-        </a>
-        <a href="./pages/search.html">
-        <div class="nav-div"><strong>Search</strong></div>
-        </a> */
-        
     );
 }
 
