@@ -1,1 +1,6 @@
 CLAUDE.md
+tools/*/node_modules
+tools/*/package-lock.json
+**/logs/*.log
+**/logs/*.gz
+redis-data/

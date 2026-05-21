@@ -1,21 +1,51 @@
-# React + Vite
+# ChefIt Frontend
 
+React 19 + Vite single-page app. Talks exclusively to the Spring Cloud Gateway — no direct backend calls.
 
-Run `npm run dev` to start frontend on `localhost:<port-number>`
+## Setup
 
+```bash
+npm install
+npm run dev      # dev server at http://localhost:5173 with HMR
+npm run build    # production build to dist/
+npm run preview  # preview the production build locally
+npm run lint     # ESLint
+```
 
+## Connecting to the backend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The gateway must be running on `:8080` before the frontend will work end-to-end.
 
-Currently, two official plugins are available:
+All API calls go through `src/utils/api.js`. The base URL is `VITE_GATEWAY_URL` (env var) or `http://localhost:8080/items` by default. To override for a different environment, create a `.env.local` file:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+VITE_GATEWAY_URL=http://your-gateway-host:8080/items
+```
 
-## React Compiler
+## Pages
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Route | Page | Description |
+|---|---|---|
+| `/` | HomePage | Recipe grid, load and delete recipes |
+| `/add` | AddPage | Form to create a new recipe |
+| `/search` | SearchPage | Search recipes by name |
+| `/recipe/:id` | RecipePage | View a single recipe with ingredients and steps |
 
-## Expanding the ESLint configuration
+## Project structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+  components/
+    Header.jsx / Header.css
+    RecipeCard.jsx / RecipeCard.css
+    IngredientRow.jsx
+    StepRow.jsx
+  pages/
+    HomePage.jsx / HomePage.css
+    AddPage.jsx / AddPage.css
+    SearchPage.jsx / SearchPage.css
+    RecipePage.jsx / RecipePage.css
+  utils/
+    api.js      — fetch helpers (fetchAllRecipes, createRecipe, etc.)
+    quips.js    — random page subtitle strings
+```

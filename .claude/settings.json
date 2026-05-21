@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "spring-logs": {
+      "command": "node",
+      "args": ["tools/spring-logs/index.js"]
+    },
+    "gradle-runner": {
+      "command": "node",
+      "args": ["tools/gradle-runner/index.js"]
+    },
+    "recipe-api": {
+      "command": "node",
+      "args": ["tools/recipe-api/index.js"],
+      "env": {
+        "GATEWAY_URL": "http://localhost:8080/items"
+      }
+    }
+  }
+}

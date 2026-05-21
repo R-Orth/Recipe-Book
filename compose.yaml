@@ -1,0 +1,32 @@
+services:
+
+  redis:
+    image: redis:7-alpine
+    container_name: chefit-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes --appendfsync everysec
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  # Optional: RedisInsight GUI at http://localhost:8001
+  # Useful for inspecting recipe hashes, the recipe:index set,
+  # and pub/sub traffic once Tasks 8-10 are implemented.
+  redis-insight:
+    image: redis/redisinsight:latest
+    container_name: chefit-redis-insight
+    ports:
+      - "8001:5540"
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  redis-data:

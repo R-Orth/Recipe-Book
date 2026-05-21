@@ -1,3 +1,51 @@
+# ChefIt — Recipe Book (CS455 Distributed Systems)
+
+## Getting Started — Microservices Stack
+
+### Prerequisites
+- Java 25, Node.js 20+
+- Docker Desktop (for Redis)
+
+### 1. Start Redis
+From the repo root:
+```bash
+docker compose up -d
+```
+Redis listens on `localhost:6379`. RedisInsight (browser GUI) at `http://localhost:8001`.
+
+### 2. Start the gateway and services
+Each in its own terminal:
+```bash
+cd gateway/gateway  &&  ./gradlew bootRun   # :8080 — API gateway
+cd services/recipes &&  ./gradlew bootRun   # :8081 — recipe CRUD
+cd services/auth    &&  ./gradlew bootRun   # :8082 — authentication
+cd services/users   &&  ./gradlew bootRun   # :8083 — user management
+```
+
+### 3. Start the frontend
+```bash
+cd frontend/ChefIt
+npm install
+npm run dev   # http://localhost:5173
+```
+
+### Architecture
+```
+Browser → Gateway :8080 → recipes :8081 → Redis
+                        → auth    :8082 → Redis
+                        → users   :8083 → Redis
+```
+
+### Running tests
+```bash
+cd services/recipes
+./gradlew test          # unit tests only (no Redis needed)
+./gradlew build         # unit + integration tests (Redis must be running)
+```
+See `services/recipes/README.md` for full test documentation.
+
+---
+
 # Project 3: Identity Server (Phase 2)
 
 * Author: Ryan Orth & Adam Taylor
