@@ -25,7 +25,7 @@ Remove the stray `@GetMapping("/hello")` from `RecipesApplication.java` — it i
 
 **Completed.** `RecipesApplication` cleaned up. `controller/RecipesController.java` created. Two build fixes noted: `ObjectMapper` is not auto-configured as a Spring bean by `spring-boot-starter-webmvc` in Spring Boot 4.x — instantiated directly in `RecipeDAO` instead of injected. Test updated with `@MockitoBean JedisPool` so the context load test doesn't require a live Redis.
 
-### Task 3 — Configure Spring Cloud Gateway routes
+### ~~Task 3 — Configure Spring Cloud Gateway routes~~ ✓
 Remove the stub `RecipesController` from the gateway — it conflicts with routing on the same paths. Add to `gateway/application.properties`:
 ```properties
 spring.cloud.gateway.routes[0].id=recipes
@@ -33,6 +33,11 @@ spring.cloud.gateway.routes[0].uri=http://localhost:8081
 spring.cloud.gateway.routes[0].predicates[0]=Path=/items/**
 ```
 Add placeholder routes for auth (`/auth/**` → 8082) and users (`/users/**` → 8083) so the gateway owns all routing from day one.
+
+**Completed.** Deleted stub `RecipesController`, `dto/Recipe`, `dto/Ingredient`, and `config/CorsConfig` from the gateway. Added three routes with comma-OR predicates (`Path=/items,/items/**` etc.) covering both bare paths and sub-paths. Three Spring Cloud 2025.x gotchas encountered and resolved:
+1. Property namespace changed from `spring.cloud.gateway.routes[*]` to `spring.cloud.gateway.server.webflux.routes[*]`
+2. `WebTestClient` is not auto-configured in Spring Boot 4.x `@SpringBootTest` — constructed manually via `@LocalServerPort` + `WebTestClient.bindToServer()`
+3. CORS via `CorsWebFilter` bean conflicts with Gateway filter chain in 2025.x — replaced with native `spring.cloud.gateway.server.webflux.globalcors.*` properties. All 15 gateway tests pass (14 routing + 1 context load).
 
 ### Task 4 — Switch the frontend from AWS to the gateway
 In `src/utils/api.js`: make `GATEWAY_URL` the primary URL in all four functions (`fetchAllRecipes`, `fetchRecipeById`, `createRecipe`, `deleteRecipeById`), demote `AWS_URL` to a commented-out fallback. Remove the `pingGateway` fire-and-forget calls — the gateway *is* the call now.
