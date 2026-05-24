@@ -6,13 +6,6 @@
   "license": "MIT",
   "author": "Ryan Orth",
   "type": "module",
-  "scripts": {
-    "test": "npx qunit"
-  },
-  "devDependencies": {
-    "qunit": "^2.23.1",
-    "sinon": "^19.0.2"
-  },
   "dependencies": {
     "react-helmet-async": "^3.0.0",
     "react-router-dom": "^7.15.0"
