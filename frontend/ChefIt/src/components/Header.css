@@ -50,3 +50,17 @@ nav a {
     left: 100px;
     z-index: 2;
 }
+
+#auth-nav {
+    position: fixed;
+    right: 100px;
+    height: 60px;
+    text-decoration: none;
+    color: rgba(74, 46, 30);
+    z-index: 2;
+}
+
+#auth-nav .nav-div {
+    width: auto;
+    padding: 0 20px;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.chefit.distributed.NodeInfoTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-06-16T04:49:40.223Z" hostname="RYANS-SICKASS-P" time="0.196">
+  <properties/>
+  <testcase name="create_idIsCurrentProcessPid()" classname="com.chefit.distributed.NodeInfoTest" time="0.03"/>
+  <testcase name="create_idIsStableAcrossCalls()" classname="com.chefit.distributed.NodeInfoTest" time="0.001"/>
+  <testcase name="jsonRoundTrip_preservesAllFields()" classname="com.chefit.distributed.NodeInfoTest" time="0.055"/>
+  <testcase name="create_ipIsNonBlankAndMatchesLocalHost()" classname="com.chefit.distributed.NodeInfoTest" time="0.001"/>
+  <testcase name="valueEquality()" classname="com.chefit.distributed.NodeInfoTest" time="0.0"/>
+  <testcase name="create_carriesServiceNameUnchanged()" classname="com.chefit.distributed.NodeInfoTest" time="0.0"/>
+  <testcase name="json_exposesIdIpServiceFields()" classname="com.chefit.distributed.NodeInfoTest" time="0.001"/>
+  <testcase name="create_differentServices_shareIdAndIp_differInService()" classname="com.chefit.distributed.NodeInfoTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -19,7 +19,20 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	implementation 'redis.clients:jedis:5.2.0'
+
+	// Shared coordination primitives (PubSubChannels, NodeInfo, RedisConnectionFactory),
+	// resolved from the included build declared in settings.gradle.
+	implementation 'com.chefit:distributed-core'
+
+	// Parse the shared ChefIt session JWT issued by the auth service
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

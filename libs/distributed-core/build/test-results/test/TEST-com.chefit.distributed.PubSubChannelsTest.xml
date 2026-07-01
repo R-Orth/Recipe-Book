@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.chefit.distributed.PubSubChannelsTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-06-16T04:49:40.421Z" hostname="RYANS-SICKASS-P" time="0.036">
+  <properties/>
+  <testcase name="replication_format()" classname="com.chefit.distributed.PubSubChannelsTest" time="0.002"/>
+  <testcase name="nullService_throws()" classname="com.chefit.distributed.PubSubChannelsTest" time="0.001"/>
+  <testcase name="election_format()" classname="com.chefit.distributed.PubSubChannelsTest" time="0.001"/>
+  <testcase name="everyChannelStartsWithChefitPrefix()" classname="com.chefit.distributed.PubSubChannelsTest" time="0.0"/>
+  <testcase name="blank=[]" classname="com.chefit.distributed.PubSubChannelsTest" time="0.005"/>
+  <testcase name="blank=[   ]" classname="com.chefit.distributed.PubSubChannelsTest" time="0.001"/>
+  <testcase name="differentServicesYieldDifferentChannels()" classname="com.chefit.distributed.PubSubChannelsTest" time="0.0"/>
+  <testcase name="allFourChannelsForOneServiceAreDistinct()" classname="com.chefit.distributed.PubSubChannelsTest" time="0.0"/>
+  <testcase name="heartbeat_format()" classname="com.chefit.distributed.PubSubChannelsTest" time="0.001"/>
+  <testcase name="discovery_format()" classname="com.chefit.distributed.PubSubChannelsTest" time="0.0"/>
+  <testcase name="service=recipes" classname="com.chefit.distributed.PubSubChannelsTest" time="0.001"/>
+  <testcase name="service=auth" classname="com.chefit.distributed.PubSubChannelsTest" time="0.001"/>
+  <testcase name="service=users" classname="com.chefit.distributed.PubSubChannelsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

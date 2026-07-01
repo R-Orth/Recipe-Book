@@ -21,6 +21,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	implementation 'com.fasterxml.jackson.core:jackson-databind'
 	implementation 'redis.clients:jedis:5.2.0'
+
+	// Shared coordination primitives (PubSubChannels, NodeInfo, RedisConnectionFactory),
+	// resolved from the included build declared in settings.gradle.
+	implementation 'com.chefit:distributed-core'
+
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'

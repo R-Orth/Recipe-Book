@@ -1,5 +1,6 @@
 HELP.md
 .gradle
+client_secret_642465390637-kcp0hs8k1a4pm4uu75rtkp9l8r5h3cn0.apps.googleusercontent.com.json
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/

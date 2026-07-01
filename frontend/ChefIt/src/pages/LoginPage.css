@@ -1,0 +1,83 @@
+#login-title-container {
+    margin: 100px 40px 40px 40px;
+    position: relative;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 80%;
+    text-wrap: unset;
+}
+
+#login-title {
+    margin: 0px;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+    color: rgba(74, 46, 30);
+}
+
+#login-form-area {
+    width: 30%;
+    justify-self: center;
+    justify-content: center;
+}
+
+#login-form-area form * {
+    justify-self: center;
+}
+
+#login-form-area .form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#login-form-area input {
+    padding: 5px -5px 5px 5px;
+    font-size: 1.25rem;
+    line-height: 1.5em;
+}
+
+#login-form-area button {
+    width: 100%;
+    font-size: 1.25rem;
+}
+
+.local-auth-form .auth-error {
+    margin-top: 0.5rem;
+    color: rgb(180, 50, 40);
+}
+
+.local-auth-form .auth-error ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+#login-separator {
+    width: 30%;
+    justify-self: center;
+    margin: 1.5rem auto;
+    border: none;
+    border-top: 1px solid rgba(74, 46, 30, 0.3);
+}
+
+#login-oauth-area {
+    width: 30%;
+    justify-self: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+#signed-in-area {
+    width: 30%;
+    justify-self: center;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+#signed-in-area button {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+}

@@ -1,1 +1,6 @@
 rootProject.name = 'recipes'
+
+// Composite build: pull in the shared coordination primitives without merging into a
+// single root project. Gradle substitutes the 'com.chefit:distributed-core' dependency
+// with this included build.
+includeBuild '../../libs/distributed-core'

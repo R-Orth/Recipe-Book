@@ -1,0 +1,158 @@
+#settings-title-container {
+    margin: 100px 40px 40px 40px;
+    position: relative;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 80%;
+    text-wrap: unset;
+}
+
+#settings-title {
+    margin: 0px;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+    color: rgba(74, 46, 30);
+}
+
+#settings-content {
+    width: 30%;
+    justify-self: center;
+    justify-content: center;
+}
+
+#settings-content section {
+    margin-bottom: 2rem;
+}
+
+#settings-content h3 {
+    font-size: 1.25rem;
+    color: rgba(74, 46, 30);
+    border-bottom: 1px solid rgba(74, 46, 30, 0.3);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+#settings-content p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+}
+
+#settings-content ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+#settings-content label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+#settings-sign-out {
+    width: 100%;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+#settings-not-signed-in {
+    width: 30%;
+    justify-self: center;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+/* --- Account-management forms (Task 6 /users features) --- */
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.settings-form h3 {
+    font-size: 1.25rem;
+    color: #4A2E1E;
+    border-bottom: 1px solid rgba(74, 46, 30, 0.3);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.settings-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    color: #4A2E1E;
+    margin-bottom: 0.75rem;
+}
+
+.settings-form input {
+    margin-top: 0.25rem;
+    padding: 0.5rem 0.6rem;
+    font-size: 1rem;
+    border: 1px solid rgba(74, 46, 30, 0.4);
+    border-radius: 6px;
+    background-color: #F4F0E7;
+    color: #4A2E1E;
+}
+
+.settings-form input:focus {
+    outline: none;
+    border-color: #E8903B;
+}
+
+.settings-btn {
+    align-self: flex-start;
+    font-size: 1rem;
+    padding: 0.5rem 1.1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #E8903B;
+    color: #F4F0E7;
+    cursor: pointer;
+}
+
+.settings-btn:hover:not(:disabled) {
+    background-color: #d57f2c;
+}
+
+.settings-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.settings-btn-danger {
+    background-color: #a32f1d;
+}
+
+.settings-btn-danger:hover:not(:disabled) {
+    background-color: #8a2718;
+}
+
+.settings-msg {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.9rem;
+}
+
+.settings-msg-success { color: #2e7d32; }
+.settings-msg-error   { color: #a32f1d; }
+.settings-msg-info    { color: #4A2E1E; }
+
+.settings-danger {
+    border: 1px solid rgba(163, 47, 29, 0.5);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.settings-danger h3 {
+    color: #a32f1d;
+    border-bottom: 1px solid rgba(163, 47, 29, 0.3);
+    padding-bottom: 0.4rem;
+}
+
+.settings-danger-actions {
+    display: flex;
+    gap: 0.75rem;
+}

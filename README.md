@@ -22,6 +22,13 @@ cd services/auth    &&  ./gradlew bootRun   # :8082 — authentication
 cd services/users   &&  ./gradlew bootRun   # :8083 — user management
 ```
 
+> **Shared library — no separate step.** The three services share coordination code from
+> `libs/distributed-core` via a Gradle **composite build** (`includeBuild` in each service's
+> `settings.gradle`). The first `bootRun`/`test` of any service compiles `distributed-core`
+> from source automatically — you'll see `:distributed-core:compileJava` / `:distributed-core:jar`
+> in the task list. There is no publish step and no root multi-project build; each service
+> stays an independent Gradle build. See `libs/distributed-core/README.md`.
+
 ### 3. Start the frontend
 ```bash
 cd frontend/ChefIt
@@ -31,18 +38,34 @@ npm run dev   # http://localhost:5173
 
 ### Architecture
 ```
-Browser → Gateway :8080 → recipes :8081 → Redis
-                        → auth    :8082 → Redis
-                        → users   :8083 → Redis
+Browser
+  └─► Gateway :8080
+        ├─► /items/**  → recipes :8081 ─┐
+        ├─► /auth/**   → auth    :8082 ─┼─► Redis :6379  (data + pub/sub)
+        └─► /users/**  → users   :8083 ─┘
+                              │
+        each service compiles in ──► libs/distributed-core
+        (PubSubChannels · NodeInfo · RedisConnectionFactory)
 ```
+`distributed-core` is a standalone Gradle library holding the cross-service coordination
+primitives (Redis pub/sub channel names, node identity, and the data/pub-sub connection
+factory) that Tasks 8–10 build on. It is pulled into each service as a composite build.
 
 ### Running tests
 ```bash
-cd services/recipes
+# Any service (from services/<name>/)
 ./gradlew test          # unit tests only (no Redis needed)
 ./gradlew build         # unit + integration tests (Redis must be running)
+
+# Shared library (from libs/distributed-core/)
+./gradlew test          # 26 tests; 2 integration tests need Redis live
+
+# Gateway (from gateway/gateway/) — no Redis needed
+./gradlew test
 ```
-See `services/recipes/README.md` for full test documentation.
+Each service also carries a `DistributedCoreWiringTest` that imports the shared classes and
+fails fast if the composite-build wiring breaks. The full per-service test breakdown and the
+build plan live in `TODO.md`.
 
 ---
 
@@ -89,25 +112,3 @@ To start and use the client, use this command-line argument
 ~~~
     ./run-client.sh --server <serverhost> [--numport <port#>] <query>
 ~~~
-
-
-## Submission Video
-https://youtu.be/IqDyfhyxqGU
-
-
-
-## Testing
-
-We were able to use the csclusters for testing in this step of the project. This was helpful in our development since we were able to see the real functionality and any issues that might arise when testing between devices. We were unable to access cscluster01, but the rest of the clusters were open and functional. 
-
-### AI Usage
-
-AI is fairly decent at recognizing and diagnosing certain errors and stack traces. This was helpful for this project when we ran into an error for RMI or any of the other features that we were still learning. The aggregation of data that LLMs rely on is why they work so well on errors, they are often similarly formatted common mistakes.  
-
-## Reflection
-
-While this project also built off of the previous one, project 3 required us to go back fix some things. We needed to make some changes to the structure of our project before we could properly move on to the beginning of the project. It was interesting for me to actually implement in code functionality of some of these distributed systems concepts. The election algorithm using bullying and the heartbeat were some of the more notable sections for us. 
-
-
-
-5121-5125
